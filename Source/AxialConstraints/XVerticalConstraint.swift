@@ -24,7 +24,7 @@ public enum XVerticalConstraint {
     
 }
 
-extension XVerticalConstraint: XLayoutAxisConstraint{
+extension XVerticalConstraint: XLayoutAxisConstraint {
     public func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint

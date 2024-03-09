@@ -1,3 +1,4 @@
 # TODO
-1. dimensional constraint with other view
-2. inequalities support
+* directly activating constraint for XConstraints
+* dimensional constraint with other view
+* inequalities support
