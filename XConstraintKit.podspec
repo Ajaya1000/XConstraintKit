@@ -20,9 +20,9 @@ DESC
   spec.author             = { "Ajaya Mati" => "ajaymati1000@gmail.com" }
   
   spec.source       = { :git => "https://github.com/Ajaya1000/XConstraintKit.git", :tag => "#{spec.version}" }
+  spec.ios.deployment_target  = '16.2'
 
-  spec.source_files  = "./**/*.{swift}"
-  spec.exclude_files = "./Exclude"
+  spec.source_files  = "Source/**/*.{swift}"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

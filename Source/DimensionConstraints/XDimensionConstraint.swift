@@ -8,13 +8,15 @@
 import UIKit
 
 /// Size of the UIView
-enum XDimensionConstraint: XLayoutDimensionConstraint {
+public enum XDimensionConstraint {
     /// width of the UIView
     case width(constant: CGFloat = 0.0)
     /// height of the UIView
     case height(constant: CGFloat = 0.0)
-    
-    func nsLayoutConstraint(for childView: UIView) -> NSLayoutConstraint {
+}
+
+extension XDimensionConstraint: XLayoutDimensionConstraint {
+    public func nsLayoutConstraint(for childView: UIView) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
         

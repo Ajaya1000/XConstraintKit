@@ -8,7 +8,7 @@
 import UIKit
 
 /// Vertical Position in the super view
-enum XVerticalConstraint: XLayoutAxisConstraint {
+public enum XVerticalConstraint {
     /// constraint of top anchor
     ///  - Parameters:
     ///     - constants: distance
@@ -22,7 +22,10 @@ enum XVerticalConstraint: XLayoutAxisConstraint {
     /// positioned directly center to super view in vertical direction
     case center
     
-    func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
+}
+
+extension XVerticalConstraint: XLayoutAxisConstraint{
+    public func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
         
@@ -52,7 +55,7 @@ enum XVerticalConstraint: XLayoutAxisConstraint {
         return constraint
     }
     
-    func nsLayoutConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
+    public func nsLayoutConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
         

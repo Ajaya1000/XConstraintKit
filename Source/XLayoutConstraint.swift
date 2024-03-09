@@ -8,7 +8,7 @@
 import UIKit
 
 /// Horizontal and Vertical Constraint
-protocol XLayoutAxisConstraint {
+public protocol XLayoutAxisConstraint {
     /// Creates ``NSLayoutConstraint`` for the constraint using
     ///   ``constraint`` method
     /// - Parameters:
@@ -21,7 +21,7 @@ protocol XLayoutAxisConstraint {
 }
 
 /// Width and Height Constraint
-protocol XLayoutDimensionConstraint {
+public protocol XLayoutDimensionConstraint {
     /// Creates ``NSLayoutConstraint`` for the constraint using
     ///   ``constraint`` method
     /// - Returns: return the  ``NSLayoutConstraint`` for the constraint

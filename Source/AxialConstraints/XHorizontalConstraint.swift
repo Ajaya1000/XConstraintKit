@@ -8,7 +8,7 @@
 import UIKit
 
 /// Horizontal Position in the super view
-enum XHorizontalConstraint: XLayoutAxisConstraint {
+public enum XHorizontalConstraint {
     /// constraints of left anchor
     ///  - Parameters:
     ///     - constants: distance
@@ -21,8 +21,10 @@ enum XHorizontalConstraint: XLayoutAxisConstraint {
     case right(constant: CGFloat = 0.0, reverse: Bool = false)
     /// positioned directly center to super view in horizontal direction
     case center
-    
-    func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
+}
+
+extension XHorizontalConstraint: XLayoutAxisConstraint {
+    public func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
         
@@ -52,7 +54,7 @@ enum XHorizontalConstraint: XLayoutAxisConstraint {
         return constraint
     }
     
-    func nsLayoutConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
+    public func nsLayoutConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
         
