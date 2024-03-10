@@ -5,7 +5,7 @@
 //  Created by Ajaya Mati on 10/03/24.
 //
 
-import Foundation
+import UIKit
 
 enum XHorizontalAttribute {
     case leading

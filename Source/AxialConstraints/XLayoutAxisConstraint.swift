@@ -5,7 +5,7 @@
 //  Created by Ajaya Mati on 10/03/24.
 //
 
-import Foundation
+import UIKit
 
 public class XLayoutAxisConstraint: XLayoutConstraint, XLayoutAxisConstraintable {
     public func nsLayoutConstraint(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors) -> NSLayoutConstraint {
