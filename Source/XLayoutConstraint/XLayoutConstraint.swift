@@ -28,7 +28,7 @@ public class XLayoutConstraint {
     
     public func nsLayoutConstraint(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors? = nil) -> NSLayoutConstraint {
         // validating constraint
-        guard isValidConstraint() else {
+        guard isValidConstraint(for: childView, with: superView) else {
             ErrorUtility.shared.fatalError(msg: Constants.NonLocalisedString.invalidConstraint)
         }
         
@@ -62,7 +62,7 @@ public class XLayoutConstraint {
     /// For validating constraint properties
     /// if required override on sub-classes
     /// - Returns: `true` if valid otherwise `false`
-    func isValidConstraint() -> Bool {
+    func isValidConstraint(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors? = nil) -> Bool {
         return true
     }
 }
