@@ -9,10 +9,25 @@ import UIKit
 
 /// Width and Height Constraint
 public protocol XLayoutDimensionConstraint {
-    /// Creates ``NSLayoutConstraint`` for the constraint using
-    ///   ``constraint`` method
+    /// Creates ``NSLayoutConstraint`` for the constraint using the ``constraint`` method with the super view
+    /// - Parameters:
+    ///   - childView: Child View
+    ///   - referenceView: The Parent View
     /// - Returns: return the  ``NSLayoutConstraint`` for the constraint
-    func nsLayoutConstraint(for childView: UIView) -> NSLayoutConstraint
+    func nsLayoutConstraint(for childView: UIView, with referenceView: UIView?) -> NSLayoutConstraint
+}
+
+public extension XLayoutDimensionConstraint {
+    /// Creates ``NSLayoutConstraint`` for the constraint using the ``constraint`` method with the super view
+    /// - Parameters:
+    ///   - childView: Child View
+    ///   - superView: The Parent View
+    /// - Returns: return the  ``NSLayoutConstraint`` for the constraint
+    func nsLayoutConstraint(for childView: UIView, with referenceView: UIView? = nil) -> NSLayoutConstraint {
+        
+        // return the constraint
+        return nsLayoutConstraint(for: childView, with: referenceView)
+    }
 }
 
 // default methods
