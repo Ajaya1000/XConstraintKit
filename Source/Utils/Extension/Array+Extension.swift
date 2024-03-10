@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension Array where Element == XLayoutDimensionConstraintable {
+public extension Array where Element == any XLayoutDimensionConstraintable {
     /// Activates Dimensional Constraints
     /// - Parameter childView: child view for which constraints are to be added
     func activateConstraints(for childView: UIView) {
@@ -21,27 +21,17 @@ public extension Array where Element == XLayoutDimensionConstraintable {
     }
 }
 
-public extension Array where Element == XLayoutAxisConstraintable {
+public extension Array where Element == XLayoutAxisConstraint {
     /// Activates Axis Constraints
     /// - Parameter childView: child view for which constraints are to be added
     /// - Parameter superView: super view with respect to which constraints are to be added
-    func activateConstraints(for childView: UIView, with superView: UIView) {
+    func activateConstraints(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors) {
         getConstraints(for: childView, with: superView).activate()
     }
     
-    func getConstraints(for childView: UIView, with superView: UIView) -> [NSLayoutConstraint] {
+    func getConstraints(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors) -> [NSLayoutConstraint] {
         return map { constraints in
             constraints.nsLayoutConstraint(for: childView, with: superView)
-        }
-    }
-    
-    func activateConstraints(for childView: UIView, with layoutGuide: UILayoutGuide) {
-        getConstraints(for: childView, with: layoutGuide).activate()
-    }
-    
-    func getConstraints(for childView: UIView, with layoutGuide: UILayoutGuide) -> [NSLayoutConstraint] {
-        return map { constraints in
-            constraints.nsLayoutConstraint(for: childView, with: layoutGuide)
         }
     }
 }

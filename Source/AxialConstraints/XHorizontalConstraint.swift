@@ -8,78 +8,22 @@
 import UIKit
 
 /// Horizontal Position in the super view
-class XHorizontalConstraint: XLayoutAxisConstraint {
-    private var anchorType: AnchorType
-    
-    init(anchorType: AnchorType) {
-        self.anchorType = anchorType
+public class XHorizontalConstraint: XLayoutAxisConstraint {
+    public var withLeading: XHorizontalConstraint {
+        self.attribute2 = XHorizontalAttribute.leading
+        
+        return self
     }
     
-    override func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
-        // to store the final constraint
-        let constraint: NSLayoutConstraint
+    public var withTrailing: XHorizontalConstraint {
+        self.attribute2 = XHorizontalAttribute.trailing
         
-        // initialize constraint
-        switch anchorType {
-        case let .left(reverse):
-            // get the super view anchor
-            let superViewAnchor = reverse ? superView.trailingAnchor : superView.leadingAnchor
-            
-            // Initializing leading anchor
-            // and assigning it to constraint
-            constraint = childView.leadingAnchor.constraint(equalTo: superViewAnchor, constant: constant)
-        case let .right(reverse):
-            // get the super view anchor
-            let superViewAnchor = reverse ? superView.leadingAnchor : superView.trailingAnchor
-            
-            // Initializing trailing anchor
-            // and assigning it to constraint
-            constraint = childView.trailingAnchor.constraint(equalTo: superViewAnchor, constant: -constant)
-        case .center:
-            // Initializing X-axis center anchor
-            // and assigning it to constraint
-            constraint = childView.centerXAnchor.constraint(equalTo: superView.centerXAnchor)
-        }
-        
-        // return the constraint
-        return constraint
+        return self
     }
     
-    override func nsLayoutConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
-        // to store the final constraint
-        let constraint: NSLayoutConstraint
+    public var withCenter: XHorizontalConstraint {
+        self.attribute2 = XHorizontalAttribute.center
         
-        // initialize constraint
-        switch anchorType {
-        case let .left(reverse):
-            // get the super view anchor
-            let superViewAnchor = reverse ? layoutGuide.trailingAnchor : layoutGuide.leadingAnchor
-            
-            // Initializing leading anchor
-            // and assigning it to constraint
-            constraint = childView.leadingAnchor.constraint(equalTo: superViewAnchor, constant: constant)
-        case let .right(reverse):
-            // get the super view anchor
-            let superViewAnchor = reverse ? layoutGuide.leadingAnchor : layoutGuide.trailingAnchor
-            
-            // Initializing trailing anchor
-            // and assigning it to constraint
-            constraint = childView.trailingAnchor.constraint(equalTo: superViewAnchor, constant: -constant)
-        case .center:
-            // Initializing X-axis center anchor
-            // and assigning it to constraint
-            constraint = childView.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor)
-        }
-        
-        // return the constraint
-        return constraint
-    }
-}
-
-extension XHorizontalConstraint {
-    enum AnchorType {
-        case left(reverse: Bool)
-        case right(reverse: Bool)
-        case center
+        return self
     }
 }

@@ -16,5 +16,9 @@ struct Constants {
         static var methodNotImplemented: String {
             "nsLayoutConstraint(:) method be implemented by the subclass"
         }
+        
+        static var invalidConstraint: String {
+            "Unable to create valid constraint. Make sure you are provide all required parameters"
+        }
     }
 }
