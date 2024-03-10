@@ -8,24 +8,18 @@
 import UIKit
 
 public class XLayoutAxisConstraint: XLayoutConstraint, XLayoutAxisConstraintable {
-    public func nsLayoutConstraint(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors) -> NSLayoutConstraint {
-        super.nsLayoutConstraint(for: childView, with: superView)
-    }
 }
 
 public extension XLayoutAxisConstraint {
+    func nsLayoutConstraint(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors) -> NSLayoutConstraint {
+        super.nsLayoutConstraint(for: childView, with: superView)
+    }
+    
     /// activate & return the corresponding ``NSLayoutConstraint`` with the super view
     /// - Returns: return the  ``NSLayoutConstraint`` for the constraint
     @discardableResult
     func activateConstraint(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors) -> NSLayoutConstraint {
-        //get constrain with superview
-        let constraint = nsLayoutConstraint(for: childView, with: superView)
-        
-        // activate the constraint
-        constraint.activate()
-        
-        //return the constraint for furthure use
-        return constraint
+        super.activateConstraint(for: childView, with: superView)
     }
 }
 
@@ -59,20 +53,16 @@ public extension XLayoutAxisConstraint {
     ///  - Parameters:
     ///     - constants: distance
     static var top: XVerticalConstraint {
-        let constraint = XVerticalConstraint(attribute1: XVerticalAttribute.top, attribute2: XVerticalAttribute.top)
-        
-        return constraint
+        .init(attribute1: XVerticalAttribute.top, attribute2: XVerticalAttribute.top)
     }
     /// constraints of right anchor
     ///  - Parameters:
     ///     - constants: distance
     static var bottom: XVerticalConstraint {
-        let constraint = XVerticalConstraint(attribute1: XVerticalAttribute.bottom, attribute2: XVerticalAttribute.bottom)
-        
-        return constraint
+        .init(attribute1: XVerticalAttribute.bottom, attribute2: XVerticalAttribute.bottom)
     }
     /// positioned directly center to super view in horizontal direction
     static var centerY: XVerticalConstraint {
-        return XVerticalConstraint(attribute1: XVerticalAttribute.center, attribute2: XVerticalAttribute.center)
+        .init(attribute1: XVerticalAttribute.center, attribute2: XVerticalAttribute.center)
     }
 }

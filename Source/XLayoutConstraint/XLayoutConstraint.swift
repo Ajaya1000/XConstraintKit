@@ -45,6 +45,20 @@ public class XLayoutConstraint {
         return constraint
     }
     
+    /// activate & return the corresponding ``NSLayoutConstraint`` with the super view
+    /// - Returns: return the  ``NSLayoutConstraint`` for the constraint
+    @discardableResult
+    public func activateConstraint(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors?) -> NSLayoutConstraint {
+        //get constrain with superview
+        let constraint = nsLayoutConstraint(for: childView, with: superView)
+        
+        // activate the constraint
+        constraint.activate()
+        
+        //return the constraint for furthure use
+        return constraint
+    }
+    
     /// For validating constraint properties
     /// if required override on sub-classes
     /// - Returns: `true` if valid otherwise `false`
