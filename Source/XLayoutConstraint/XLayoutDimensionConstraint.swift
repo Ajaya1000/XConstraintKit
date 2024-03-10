@@ -1,5 +1,5 @@
 //
-//  XLayoutDimensionConstraint.swift
+//  XLayoutDimensionConstraintable.swift
 //  XConstraintKit
 //
 //  Created by Ajaya Mati on 09/03/24.
@@ -8,7 +8,7 @@
 import UIKit
 
 /// Width and Height Constraint
-public protocol XLayoutDimensionConstraint {
+public protocol XLayoutDimensionConstraintable {
     /// Creates ``NSLayoutConstraint`` for the constraint using the ``constraint`` method with the super view
     /// - Parameters:
     ///   - childView: Child View
@@ -17,7 +17,7 @@ public protocol XLayoutDimensionConstraint {
     func nsLayoutConstraint(for childView: UIView, with referenceView: UIView?) -> NSLayoutConstraint
 }
 
-public extension XLayoutDimensionConstraint {
+public extension XLayoutDimensionConstraintable {
     /// Creates ``NSLayoutConstraint`` for the constraint using the ``constraint`` method with the super view
     /// - Parameters:
     ///   - childView: Child View
@@ -31,7 +31,7 @@ public extension XLayoutDimensionConstraint {
 }
 
 // default methods
-public extension XLayoutDimensionConstraint {
+public extension XLayoutDimensionConstraintable {
     @discardableResult
     func activateConstraint(for childView: UIView) -> NSLayoutConstraint {
         // get constraint with layoutguide

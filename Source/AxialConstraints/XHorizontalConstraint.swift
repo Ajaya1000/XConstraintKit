@@ -8,36 +8,27 @@
 import UIKit
 
 /// Horizontal Position in the super view
-public enum XHorizontalConstraint {
-    /// constraints of left anchor
-    ///  - Parameters:
-    ///     - constants: distance
-    ///     - reverse: if ``reverse`` is true then calculates from from the super view right anchor else left anchor
-    case left(constant: CGFloat = 0.0, reverse: Bool = false)
-    /// constraints of right anchor
-    ///  - Parameters:
-    ///     - constants: distance
-    ///     - reverse: if ``reverse`` is true then calculates from from the super view left anchor else right anchor
-    case right(constant: CGFloat = 0.0, reverse: Bool = false)
-    /// positioned directly center to super view in horizontal direction
-    case center
-}
-
-extension XHorizontalConstraint: XLayoutAxisConstraint {
-    public func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
+class XHorizontalConstraint: XLayoutConstraint {
+    private var anchorType: AnchorType
+    
+    init(anchorType: AnchorType) {
+        self.anchorType = anchorType
+    }
+    
+    override func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
         
         // initialize constraint
-        switch self {
-        case .left(let constant, let reverse):
+        switch anchorType {
+        case let .left(reverse):
             // get the super view anchor
             let superViewAnchor = reverse ? superView.trailingAnchor : superView.leadingAnchor
             
             // Initializing leading anchor
             // and assigning it to constraint
             constraint = childView.leadingAnchor.constraint(equalTo: superViewAnchor, constant: constant)
-        case .right(let constant, let reverse):
+        case let .right(reverse):
             // get the super view anchor
             let superViewAnchor = reverse ? superView.leadingAnchor : superView.trailingAnchor
             
@@ -54,20 +45,20 @@ extension XHorizontalConstraint: XLayoutAxisConstraint {
         return constraint
     }
     
-    public func nsLayoutConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
+    override func nsLayoutConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
         
         // initialize constraint
-        switch self {
-        case .left(let constant, let reverse):
+        switch anchorType {
+        case let .left(reverse):
             // get the super view anchor
             let superViewAnchor = reverse ? layoutGuide.trailingAnchor : layoutGuide.leadingAnchor
             
             // Initializing leading anchor
             // and assigning it to constraint
             constraint = childView.leadingAnchor.constraint(equalTo: superViewAnchor, constant: constant)
-        case .right(let constant, let reverse):
+        case let .right(reverse):
             // get the super view anchor
             let superViewAnchor = reverse ? layoutGuide.leadingAnchor : layoutGuide.trailingAnchor
             
@@ -82,5 +73,13 @@ extension XHorizontalConstraint: XLayoutAxisConstraint {
         
         // return the constraint
         return constraint
+    }
+}
+
+extension XHorizontalConstraint {
+    enum AnchorType {
+        case left(reverse: Bool)
+        case right(reverse: Bool)
+        case center
     }
 }

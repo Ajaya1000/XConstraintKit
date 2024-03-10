@@ -12,5 +12,9 @@ struct Constants {
         static var referenceViewNotFound: String {
             "reference view not found, but constraint asked with the reference view."
         }
+        
+        static var methodNotImplemented: String {
+            "nsLayoutConstraint(:) method be implemented by the subclass"
+        }
     }
 }

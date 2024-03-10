@@ -1,5 +1,5 @@
 //
-//  XLayoutAxisConstraint.swift
+//  XLayoutAxisConstraintable.swift
 //  XConstraintKit
 //
 //  Created by Ajaya Mati on 09/03/24.
@@ -8,7 +8,7 @@
 import UIKit
 
 /// Horizontal and Vertical Constraint
-public protocol XLayoutAxisConstraint {
+public protocol XLayoutAxisConstraintable {
     /// Creates ``NSLayoutConstraint`` for the constraint using
     ///   ``constraint`` method
     /// - Parameters:
@@ -21,10 +21,10 @@ public protocol XLayoutAxisConstraint {
 }
 
 // default methods
-public extension XLayoutAxisConstraint {
-    @discardableResult
+public extension XLayoutAxisConstraintable {
     /// activate & return the corresponding ``NSLayoutConstraint`` with the super view
     /// - Returns: return the  ``NSLayoutConstraint`` for the constraint
+    @discardableResult
     func activateConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
         //get constrain with superview
         let constraint = nsLayoutConstraint(for: childView, with: superView)
@@ -36,9 +36,9 @@ public extension XLayoutAxisConstraint {
         return constraint
     }
     
-    @discardableResult
     /// activate & return the corresponding ``NSLayoutConstraint`` with the layout guide
     /// - Returns: return the  ``NSLayoutConstraint`` for the constraint
+    @discardableResult
     func activateConstraint(for childView: UIView, with layoutGuide: UILayoutGuide) -> NSLayoutConstraint {
         // get constraint with layoutguide
         let constraint = nsLayoutConstraint(for: childView, with: layoutGuide)

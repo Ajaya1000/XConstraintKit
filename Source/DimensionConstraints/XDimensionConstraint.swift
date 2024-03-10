@@ -15,7 +15,7 @@ public enum XDimensionConstraint {
     case height(constant: CGFloat = 0.0, withReferenceView: Bool = false)
 }
 
-extension XDimensionConstraint: XLayoutDimensionConstraint {
+extension XDimensionConstraint: XLayoutDimensionConstraintable {
     public func nsLayoutConstraint(for childView: UIView, with referenceView: UIView?) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint

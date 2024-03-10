@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension Array where Element == XLayoutDimensionConstraint {
+public extension Array where Element == XLayoutDimensionConstraintable {
     /// Activates Dimensional Constraints
     /// - Parameter childView: child view for which constraints are to be added
     func activateConstraints(for childView: UIView) {
@@ -21,7 +21,7 @@ public extension Array where Element == XLayoutDimensionConstraint {
     }
 }
 
-public extension Array where Element == XLayoutAxisConstraint {
+public extension Array where Element == XLayoutAxisConstraintable {
     /// Activates Axis Constraints
     /// - Parameter childView: child view for which constraints are to be added
     /// - Parameter superView: super view with respect to which constraints are to be added

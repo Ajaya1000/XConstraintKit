@@ -6,10 +6,10 @@ Pod::Spec.new do |spec|
   
   spec.description  = <<-DESC
   A UIKit NSLayoutConstraint helper Library.
-  // using `XLayoutAxisConstraint`
+  // using `XLayoutAxisConstraintable`
 self.view.addSubview(backgroundView)
         
-let constraints: [XLayoutAxisConstraint] = [XHorizontalConstraint.left(),
+let constraints: [XLayoutAxisConstraintable] = [XHorizontalConstraint.left(),
                                             XHorizontalConstraint.right(),
                                             XVerticalConstraint.top(),
                                             XVerticalConstraint.bottom()]

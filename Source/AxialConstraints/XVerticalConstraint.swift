@@ -12,7 +12,7 @@ public enum XVerticalConstraint {
     /// constraint of top anchor
     ///  - Parameters:
     ///     - constants: distance
-    ///     - reverse: if ``reverse`` is true then calculates from from the super view bottom anchor else top anchor
+    ///     - reverse:
     case top(constant: CGFloat = 0.0, reverse: Bool = false)
     /// constraint of bottom anchor
     ///  - Parameters:
@@ -24,7 +24,7 @@ public enum XVerticalConstraint {
     
 }
 
-extension XVerticalConstraint: XLayoutAxisConstraint {
+extension XVerticalConstraint: XLayoutAxisConstraintable {
     public func nsLayoutConstraint(for childView: UIView, with superView: UIView) -> NSLayoutConstraint {
         // to store the final constraint
         let constraint: NSLayoutConstraint
