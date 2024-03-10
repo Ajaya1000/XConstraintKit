@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class XLayoutConstraint: XLayoutAxisConstraintable {
+public class XLayoutAxisConstraint: XLayoutAxisConstraintable {
     public private(set) var constant: CGFloat = 0.0
     public private(set) var multiplier: Float = 1.0
     public private(set) var priority: Int = 1000
@@ -24,7 +24,7 @@ public class XLayoutConstraint: XLayoutAxisConstraintable {
 }
 
 // MARK: - Public Methods
-public extension XLayoutConstraint {
+public extension XLayoutAxisConstraint {
     /// Set the value of constant
     /// - Parameter value: The value of the constant
     /// - Returns: return `self`
@@ -55,11 +55,11 @@ public extension XLayoutConstraint {
 }
 
 // MARK: - XHorizontalConstraint Initializers
-public extension XLayoutConstraint {
+public extension XLayoutAxisConstraint {
     /// constraints of left anchor
     ///  - Parameters:
     ///     - constants: distance
-    static func left(reverse: Bool = false) -> XLayoutConstraint {
+    static func left(reverse: Bool = false) -> XLayoutAxisConstraint {
         let constraint = XHorizontalConstraint(anchorType: .left(reverse: reverse))
         
         return constraint
@@ -67,13 +67,13 @@ public extension XLayoutConstraint {
     /// constraints of right anchor
     ///  - Parameters:
     ///     - constants: distance
-    static func right(reverse: Bool = false) -> XLayoutConstraint {
+    static func right(reverse: Bool = false) -> XLayoutAxisConstraint {
         let constraint = XHorizontalConstraint(anchorType: .right(reverse: reverse))
         
         return constraint
     }
     /// positioned directly center to super view in horizontal direction
-    static func center() -> XLayoutConstraint {
+    static func center() -> XLayoutAxisConstraint {
         return XHorizontalConstraint(anchorType: .center)
     }
 }

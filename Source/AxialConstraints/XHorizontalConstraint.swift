@@ -8,7 +8,7 @@
 import UIKit
 
 /// Horizontal Position in the super view
-class XHorizontalConstraint: XLayoutConstraint {
+class XHorizontalConstraint: XLayoutAxisConstraint {
     private var anchorType: AnchorType
     
     init(anchorType: AnchorType) {
