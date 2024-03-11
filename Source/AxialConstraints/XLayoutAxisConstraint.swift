@@ -31,7 +31,7 @@ public extension XLayoutAxisConstraint {
     /// constraints of left anchor
     ///  - Parameters:
     ///     - constants: distance
-    static var left: XHorizontalConstraint {
+    static var leading: XHorizontalConstraint {
         let constraint = XHorizontalConstraint(attribute1: XHorizontalAttribute.leading, attribute2: XHorizontalAttribute.leading)
         
         return constraint
@@ -39,7 +39,7 @@ public extension XLayoutAxisConstraint {
     /// constraints of right anchor
     ///  - Parameters:
     ///     - constants: distance
-    static var right: XHorizontalConstraint {
+    static var trailing: XHorizontalConstraint {
         let constraint = XHorizontalConstraint(attribute1: XHorizontalAttribute.trailing, attribute2: XHorizontalAttribute.trailing)
         
         return constraint
