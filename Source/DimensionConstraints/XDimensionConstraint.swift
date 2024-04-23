@@ -9,13 +9,13 @@ import UIKit
 
 /// Size of the UIView
 public class XDimensionConstraint: XLayoutDimensionConstraint {
-    public var withdWidth: XDimensionConstraint {
+    public var withdWidth: XLayoutDimensionConstraint {
         self.attribute2 = XDimensionAttribute.width
         
         return self
     }
     
-    public var withHeight: XDimensionConstraint {
+    public var withHeight: XLayoutDimensionConstraint {
         self.attribute2 = XDimensionAttribute.height
         
         return self

@@ -8,11 +8,23 @@
 import UIKit
 
 public protocol ExpressibleByAnchors {
-    var leading: XHorizontalAnchor { get }
-    var trailing: XHorizontalAnchor { get }
-    var centerX: XHorizontalAnchor { get }
+    var xcKit: XCKitAnchorSet { get }
+}
+
+public extension ExpressibleByAnchors {
+    func activate(with superView: ExpressibleByAnchors? = nil,
+                  @XLayoutConstraintBuilder constraints: (XLayoutConstraintMaker) -> [XLayoutConstraint]) {
+        let xc = XLayoutConstraintMaker()
+        let xContraints = constraints(xc)
+        
+        xContraints.activateConstraints(for: self, with: superView)
+    }
     
-    var top: XVerticalAnchor { get }
-    var bottom: XVerticalAnchor { get }
-    var centerY: XVerticalAnchor { get }
+    func nsLayout(with superView: ExpressibleByAnchors? = nil,
+                  constraint: @escaping (XLayoutConstraintMaker) -> XLayoutConstraint) -> NSLayoutConstraint{
+        let xc = XLayoutConstraintMaker()
+        let xContraint = constraint(xc)
+        
+        return xContraint.nsLayoutConstraint(for: self, with: superView)
+    }
 }

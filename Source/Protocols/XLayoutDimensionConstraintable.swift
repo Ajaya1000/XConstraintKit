@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/// deprecated
 /// Width and Height Constraint
 public protocol XLayoutDimensionConstraintable {
     /// Creates ``NSLayoutConstraint`` for the constraint using the ``constraint`` method with the super view

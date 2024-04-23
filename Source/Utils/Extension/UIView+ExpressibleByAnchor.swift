@@ -8,27 +8,12 @@
 import UIKit
 
 extension UIView: ExpressibleByAnchors {
-    public var centerX: XHorizontalAnchor {
-        self.centerXAnchor
-    }
-    
-    public var centerY: XVerticalAnchor {
-        self.centerYAnchor
-    }
-    
-    public var leading: XHorizontalAnchor {
-        self.leadingAnchor
-    }
-    
-    public var trailing: XHorizontalAnchor {
-        self.trailingAnchor
-    }
-    
-    public var top: XVerticalAnchor {
-        self.topAnchor
-    }
-    
-    public var bottom: XVerticalAnchor {
-        self.bottomAnchor
+    public var xcKit: XCKitAnchorSet {
+        XCKitAnchorSet(leading: leadingAnchor,
+                       trailing: trailingAnchor,
+                       centerX: centerXAnchor,
+                       top: topAnchor,
+                       bottom: bottomAnchor,
+                       centerY: centerYAnchor)
     }
 }

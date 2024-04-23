@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/// deprecated
 /// Horizontal and Vertical Constraint
 protocol XLayoutAxisConstraintable {
     /// Creates ``NSLayoutConstraint`` for the constraint using

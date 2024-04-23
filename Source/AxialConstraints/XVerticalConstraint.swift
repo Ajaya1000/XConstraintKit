@@ -9,19 +9,19 @@ import UIKit
 
 /// Vertical Position in the super view
 public class XVerticalConstraint: XLayoutAxisConstraint {
-    public var withTop: XVerticalConstraint {
+    public var withTop: XLayoutAxisConstraint {
         self.attribute2 = XVerticalAttribute.top
         
         return self
     }
     
-    public var withBottom: XVerticalConstraint {
+    public var withBottom: XLayoutAxisConstraint {
         self.attribute2 = XVerticalAttribute.bottom
         
         return self
     }
     
-    public var withCenter: XVerticalConstraint {
+    public var withCenter: XLayoutAxisConstraint {
         self.attribute2 = XVerticalAttribute.center
         
         return self
