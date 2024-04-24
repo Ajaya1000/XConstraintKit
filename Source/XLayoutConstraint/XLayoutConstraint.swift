@@ -32,13 +32,22 @@ public class XLayoutConstraint {
             ErrorUtility.shared.fatalError(msg: Constants.NonLocalisedString.invalidConstraint)
         }
         
+        var superView = superView
+        var nsAttribute2: NSLayoutConstraint.Attribute = .notAnAttribute
+        
+        if let attribute2 {
+            nsAttribute2 = attribute2.nsAttribute
+        } else {
+            superView = nil
+        }
+        
         let constraint = NSLayoutConstraint(item: childView,
-                                            attribute: attribute1.nsAttribute,
-                                            relatedBy: comparator.nsRelation,
-                                            toItem: superView,
-                                            attribute: attribute2?.nsAttribute ?? .notAnAttribute,
-                                            multiplier: multiplier,
-                                            constant: constant)
+                                        attribute: attribute1.nsAttribute,
+                                        relatedBy: comparator.nsRelation,
+                                        toItem: superView,
+                                        attribute: nsAttribute2,
+                                        multiplier: multiplier,
+                                        constant: constant)
         
         constraint.priority = .init(priority)
         
