@@ -8,7 +8,7 @@
 import UIKit
 
 /// deprecated
-public extension Array where Element == XLayoutConstraint {
+extension Array where Element == XLayoutConstraint {
     /// Activates Dimensional Constraints
     /// - Parameter childView: child view for which constraints are to be added
     func activateConstraints(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors? = nil) {
@@ -22,7 +22,7 @@ public extension Array where Element == XLayoutConstraint {
     }
 }
 
-public extension Array where Element == XLayoutDimensionConstraint {
+extension Array where Element == XLayoutDimensionConstraint {
     /// Activates Dimensional Constraints
     /// - Parameter childView: child view for which constraints are to be added
     func activateConstraints(for childView: ExpressibleByAnchors, with superView: ExpressibleByAnchors? = nil) {
@@ -36,7 +36,7 @@ public extension Array where Element == XLayoutDimensionConstraint {
     }
 }
 
-public extension Array where Element == XLayoutAxisConstraint {
+extension Array where Element == XLayoutAxisConstraint {
     /// Activates Axis Constraints
     /// - Parameter childView: child view for which constraints are to be added
     /// - Parameter superView: super view with respect to which constraints are to be added
@@ -51,7 +51,7 @@ public extension Array where Element == XLayoutAxisConstraint {
     }
 }
 
-public extension Array where Element == NSLayoutConstraint {
+extension Array where Element == NSLayoutConstraint {
     func activate() {
         NSLayoutConstraint.activate(self)
     }
