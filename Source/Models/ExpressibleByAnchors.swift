@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol ExpressibleByAnchors {
-    var xcKit: XCKitAnchorSet { get }
+    
 }
 
 public extension ExpressibleByAnchors {

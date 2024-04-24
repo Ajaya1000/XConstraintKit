@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - XLayoutDimensionConstraint Initializers
-extension XLayoutConstraintMaker {
+public extension XLayoutConstraintMaker {
     /// width of the UIView
-    static var width: XDimensionConstraint {
+    var width: XDimensionConstraint {
         .init(attribute1: XDimensionAttribute.width, attribute2: nil)
     }
     
-    static var height: XDimensionConstraint {
+    var height: XDimensionConstraint {
         .init(attribute1: XDimensionAttribute.height, attribute2: nil)
     }
 }
