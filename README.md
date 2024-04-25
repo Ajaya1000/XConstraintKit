@@ -1,20 +1,31 @@
-# TODO
-* directly activating constraint for XConstraints - Done
-* dimensional constraint with other view - Done
-* Move to class based implementation instead of enums - Done
-* ExpressibleByAnchor: Protocol instead of UIView or UILayoutGuide - Done
-* Add enum for all the anchors - Done
-* inequalities support - Done
-* Add to direclty adding constraint to any ExpressibleByAnchor instances - In progress
-* Implement Validation - Needs to be updated
+# Installation
 
-view.xcKit.leading.with(superView.leading)
+## use cocoapod
 
-view1.activate(with: superView) { xc in
-    xc.leading.withLeading
-    xc.trailing.withCenter
+pod 'XConstraintKit', :git => 'git@github.com:Ajaya1000/XConstraintKit.git', :tag => 'v1'
+
+## use SPM
+add this library using this git@github.com:Ajaya1000/XConstraintKit.git
+
+# Uses
+Activate constraint for childView with superView using the function
+ `func activate(with superView: ExpressibleByAnchors? = nil,
+                  @XLayoutConstraintBuilder constraints: (XLayoutConstraintMaker) -> [XLayoutConstraint])`
+
+```swift
+self.childView.activate(with: superView) { xc in
+    xc.leading
+    xc.trailing
     xc.top
-    xc.bottom.constant(to: 100.0)
+    xc.bottom
 }
+```
 
-view1.activate(with: superView) { xc in xc.leading }
+ExpressibleByAnchors are conformed by `UIView` & `UILayoutGuide`
+
+for xc.leading => attr1 = .leading, attr1 = .leading
+for xc.leading.withTrailing => attr1 = .leading, attr1 = .trailing
+
+so on like that
+
+XLayoutConstraint has function to set `constant`, `priority` and `multiplier`.
